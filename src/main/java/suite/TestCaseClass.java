@@ -1,10 +1,11 @@
 package suite;
 
 import common.HelperClass;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
-import java.util.Dictionary;
-import java.util.Hashtable;
+import java.util.*;
 
 public class TestCaseClass extends HelperClass {
 
@@ -21,14 +22,24 @@ public class TestCaseClass extends HelperClass {
     }
 
     @Test
-    public void openAthensUrl() {
+    public void openAthensUrl() throws InterruptedException {
         System.out.println("Open Athens results");
         driver.get(urlPrefix + locations.get("Athens"));
+        Thread.sleep(1000);
+        final List<WebElement> elements = driver.findElements(By.xpath("//div[@id='searchDetailsListings']"));
+        elements.forEach(el-> {
+            System.out.println(el.getText());
+        } );
     }
 
     @Test
-    public void openMykonosUrl() {
+    public void openMykonosUrl() throws InterruptedException {
         System.out.println("Open Mykonos results");
         driver.get(urlPrefix + locations.get("Mykonos"));
+        Thread.sleep(1000);
+        final List<WebElement> elements = driver.findElements(By.xpath("//div[@id='searchDetailsListings']"));
+        elements.forEach(el-> {
+            System.out.println(el.getText());
+        } );
     }
 }

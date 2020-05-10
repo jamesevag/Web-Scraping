@@ -18,7 +18,8 @@ public class BrowserFactory {
         if(driver==null){
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--disable-notifications");
-            options.addArguments("--headless");
+            //options.addArguments("--headless");
+            //options.addArguments(" - icognito");
             System.setProperty("webdriver.chrome.driver", "C:/development/drivers/chromedriver.exe");
             driver = new ChromeDriver(options);
             driver.manage().window().maximize();
